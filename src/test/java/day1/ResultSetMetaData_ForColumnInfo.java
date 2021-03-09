@@ -23,9 +23,15 @@ public class ResultSetMetaData_ForColumnInfo {
          // getColumnCount to count how many column we have
          // getColumnName or getColumnLabel
         System.out.println("rsmd.getColumnCount() = " + rsmd.getColumnCount() );
-        System.out.println("rsmd.getColumnName(1) = " + rsmd.getColumnName(1) );
-        System.out.println("rsmd.getColumnName(2) = " + rsmd.getColumnName(2) );
+//        System.out.println("rsmd.getColumnName(1) = " + rsmd.getColumnName(1) );
+//        System.out.println("rsmd.getColumnName(2) = " + rsmd.getColumnName(2) );
 
+        // print out all the column names
+
+        int colCount = rsmd.getColumnCount() ;
+        for (int col = 1; col <= colCount ; col++) {
+            System.out.println("Column "+col+" Name = " + rsmd.getColumnName(col) );
+        }
 
 
 
