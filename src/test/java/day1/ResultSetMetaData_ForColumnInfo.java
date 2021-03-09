@@ -1,6 +1,8 @@
 package day1;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ResultSetMetaData_ForColumnInfo {
 
@@ -32,6 +34,14 @@ public class ResultSetMetaData_ForColumnInfo {
         for (int col = 1; col <= colCount ; col++) {
             System.out.println("Column "+col+" Name = " + rsmd.getColumnName(col) );
         }
+
+        // SAVE ALL COLUMN NAMES INTO A LIST
+        List<String> allColumns = new ArrayList<>();
+        for (int col = 1; col <= colCount ; col++) {
+           allColumns.add(  rsmd.getColumnName(col)   ) ;
+        }
+        System.out.println("allColumns = " + allColumns);
+
 
 
 
