@@ -12,7 +12,7 @@ public class TestConnection {
      *   syntax :
      *   jdbc : vendorName : driverType @YourHost:PORT:SID
      *
-     *   jdbc:oracle:thin@54.236.150.168:1521:XE
+     *   jdbc:oracle:thin:@54.236.150.168:1521:XE
      *
      */
     public static void main(String[] args){
