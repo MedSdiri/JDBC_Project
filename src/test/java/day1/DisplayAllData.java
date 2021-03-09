@@ -33,13 +33,16 @@ public class DisplayAllData {
 //
 //        }
 //        System.out.println();
+        // THIS IS PRINTING COLUMN NAMES
+        for (int col = 1; col <= colCount; col++) {
+            System.out.print( rsmd.getColumnName(col) + "\t");
+        }
+        System.out.println();
 
-
-
+        // THIS IS PRINTING EACH ROW DATA
         rs.beforeFirst();
         // now I want to go through each and every row
         while(rs.next()) {
-
             // this will print entire row
             for (int col = 1; col <= colCount; col++) {
                 System.out.print(rs.getString(col) + "\t");
