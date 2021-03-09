@@ -50,17 +50,9 @@ public class DisplayAllData {
             System.out.println();
         }
 
-
-
-
-
-
-
-
-
-
-
-
+        rs.close();
+        stm.close();
+        con.close();
 
 
     }

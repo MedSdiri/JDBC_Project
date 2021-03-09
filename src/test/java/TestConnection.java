@@ -23,6 +23,7 @@ public class TestConnection {
             Connection con = DriverManager.getConnection(url, "hr", "hr");
 
             System.out.println("CONNECTION SUCCESSFUL");
+            con.close();
 
         }catch(SQLException e){
             System.out.println("CONNECTION HAS FAILED "+ e.getMessage());
