@@ -29,6 +29,7 @@ public class LoopingResultSet {
 
         // CREATE NEW ResultSet Object by running different query like
         // SELECT * FROM JOBS
+        // you may reuse same variable
 
 
 
