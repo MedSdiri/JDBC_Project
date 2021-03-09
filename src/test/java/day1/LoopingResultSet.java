@@ -31,6 +31,19 @@ public class LoopingResultSet {
         // SELECT * FROM JOBS
         // you may reuse same variable
 
+        rs = stm.executeQuery("SELECT * FROM JOBS") ;
+
+        // rs.getString has overloaded version
+        // and you can use column index instead of column names
+
+        while(rs.next() ){
+            // get job_id and title in one line
+            System.out.print( rs.getString(1) );
+            System.out.println("\t\t "  +  rs.getString(2));
+
+        }
+
+
 
 
 
