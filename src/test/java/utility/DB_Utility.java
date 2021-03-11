@@ -58,7 +58,7 @@ public class DB_Utility {
         try {
              stm = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
              rs = stm.executeQuery(sql); // setting the value of ResultSet object
-             rsmd = rs.getMetaData() ;  // setting the value of ResulSetMetaData for reuse
+             rsmd = rs.getMetaData() ;  // setting the value of ResultSetMetaData for reuse
         }catch(SQLException e){
             System.out.println("ERROR OCCURRED WHILE RUNNING QUERY "+ e.getMessage() );
         }
@@ -72,7 +72,7 @@ public class DB_Utility {
      */
     public static void destroy(){
         // WE HAVE TO CHECK IF WE HAVE THE VALID OBJECT FIRST BEFORE CLOSING THE RESOURCE
-        // BECAUSE WE CAN NOT TAKE ACTION ON AN OBEJCT THAT DOES NOT EXIST
+        // BECAUSE WE CAN NOT TAKE ACTION ON AN OBJECT THAT DOES NOT EXIST
         try {
             if( rs!=null)  rs.close();
             if( stm!=null)  stm.close();
@@ -189,6 +189,27 @@ public class DB_Utility {
         try {
             rs.absolute(rowNum) ;
             cellValue = rs.getString(columnIndex ) ;
+
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE getCellValue " + e.getMessage() );
+        }
+        return cellValue ;
+
+    }
+
+    /**
+     * getting the cell value according to row num and column name
+     * @param rowNum
+     * @param columnName
+     * @return the value in String at that location
+     */
+    public static String getCellValue(int rowNum ,String columnName){
+
+        String cellValue = "" ;
+
+        try {
+            rs.absolute(rowNum) ;
+            cellValue = rs.getString( columnName ) ;
 
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE getCellValue " + e.getMessage() );

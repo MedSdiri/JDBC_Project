@@ -12,10 +12,9 @@ public class UtilityRun {
 //       DB_Utility.createConnection() ;
 
 
-       String url      = ConfigurationReader.getProperty("hr.database.url") ;
+        String url      = ConfigurationReader.getProperty("hr.database.url") ;
         String username = ConfigurationReader.getProperty("hr.database.username") ;
         String password = ConfigurationReader.getProperty("hr.database.password") ;
-
 
         DB_Utility.createConnection(url, username, password);
 
