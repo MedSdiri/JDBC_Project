@@ -80,6 +80,27 @@ public class DB_Utility {
     }
 
 
+    // find out the row count
+
+    /**
+     * find out the row count
+     * @return row count of this ResultSet
+     */
+    public static int getRowCount(){
+
+        int rowCount = 0 ;
+        try {
+            rs.last() ;
+            rowCount = rs.getRow() ;
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE GETTING ROW COUNT " + e.getMessage() );
+        }
+
+        return rowCount ;
+
+    }
+
+
 
 
 
