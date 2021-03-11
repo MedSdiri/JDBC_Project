@@ -35,7 +35,8 @@ public class UtilityRun {
         System.out.println("DB_Utility.getRowDataAsList(3) = "
                         + DB_Utility.getRowDataAsList(3));
 
-
+        System.out.println("DB_Utility.getCellValue(3,2) = "
+             + DB_Utility.getCellValue(3,2));
 
 
         DB_Utility.destroy();
