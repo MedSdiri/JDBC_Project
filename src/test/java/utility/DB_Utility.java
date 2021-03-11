@@ -145,6 +145,11 @@ public class DB_Utility {
 
     // get entire row of data according to row number
 
+    /**
+     * Getting entire row of data in a List of String
+     * @param rowNum
+     * @return row data as List of String
+     */
     public static List<String> getRowDataAsList( int rowNum ){
 
         List<String> rowDataAsLst = new ArrayList<>();
@@ -167,6 +172,29 @@ public class DB_Utility {
 
 
         return rowDataAsLst ;
+    }
+
+
+
+    /**
+     * getting the cell value according to row num and column index
+     * @param rowNum
+     * @param columnIndex
+     * @return the value in String at that location
+     */
+    public static String getCellValue(int rowNum , int columnIndex) {
+
+        String cellValue = "" ;
+
+        try {
+            rs.absolute(rowNum) ;
+            cellValue = rs.getString(columnIndex ) ;
+
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE getCellValue " + e.getMessage() );
+        }
+        return cellValue ;
+
     }
 
 
