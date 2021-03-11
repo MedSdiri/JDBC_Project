@@ -2,7 +2,9 @@ package utility;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DB_Utility {
 
@@ -313,11 +315,39 @@ public class DB_Utility {
             resetCursor();
         }
 
-
-
     }
 
+    /**
+     * Save entire row data as Map<String,String>
+     * @param rowNum
+     * @return Map object that contains key value pair
+     *      key     : column name
+     *      value   : cell value
+     */
+    public static Map<String,String> getRowMap(int rowNum){
 
+        Map<String,String> rowMap = new LinkedHashMap<>();
+        int columnCount = getColumnCount() ;
+
+        try{
+
+            rs.absolute(rowNum) ;
+
+            for (int colIndex = 1; colIndex <= columnCount ; colIndex++) {
+                String columnName = rsmd.getColumnName(colIndex) ;
+                String cellValue  = rs.getString(colIndex) ;
+                rowMap.put(columnName, cellValue) ;
+            }
+
+        }catch(SQLException e){
+            System.out.println("ERROR OCCURRED WHILE displayAllData " + e.getMessage() );
+        }finally {
+            resetCursor();
+        }
+
+
+        return rowMap ;
+    }
 
 
 }
