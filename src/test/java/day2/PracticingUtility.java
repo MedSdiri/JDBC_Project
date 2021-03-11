@@ -17,7 +17,18 @@ public class PracticingUtility {
                                 + DB_Utility.getAllColumnNamesAsList());
         System.out.println("DB_Utility.getRowDataAsList(1) = \n\t"
                                 + DB_Utility.getRowDataAsList(1));
-
+        System.out.println("DB_Utility.getCellValue(8,5) = "
+                                + DB_Utility.getCellValue(8, 5));
+        System.out.println("DB_Utility.getCellValue(8,\"PHONE_NUMBER\") = "
+                                + DB_Utility.getCellValue(8, "PHONE_NUMBER"));
+        System.out.println("DB_Utility.getColumnDataAsList(2) = \n\t"
+                                + DB_Utility.getColumnDataAsList(2));
+        System.out.println("DB_Utility.getColumnDataAsList(\"FIRST_NAME\") = \n\t"
+                                + DB_Utility.getColumnDataAsList("FIRST_NAME"));
+        System.out.println("DB_Utility.getRowMap(1) = \n\t"
+                                + DB_Utility.getRowMap(1));
+        System.out.println("DB_Utility.getAllRowAsListOfMap() = \n\t"
+                                + DB_Utility.getAllRowAsListOfMap());
 
         DB_Utility.destroy();
 
