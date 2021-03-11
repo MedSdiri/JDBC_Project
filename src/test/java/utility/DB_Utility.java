@@ -21,14 +21,13 @@ public class DB_Utility {
         String url      = ConfigurationReader.getProperty("hr.database.url") ;
         String username = ConfigurationReader.getProperty("hr.database.username") ;
         String password = ConfigurationReader.getProperty("hr.database.password") ;
-
-        try {
-            con = DriverManager.getConnection(url , username, password) ;
-            System.out.println("CONNECTION SUCCESSFUL");
-        } catch (SQLException e) {
-            System.out.println("CONNECTION HAS FAILED " + e.getMessage() );
-        }
-
+//        try {
+//            con = DriverManager.getConnection(url , username, password) ;
+//            System.out.println("CONNECTION SUCCESSFUL");
+//        } catch (SQLException e) {
+//            System.out.println("CONNECTION HAS FAILED " + e.getMessage() );
+//        }
+        createConnection(url, username, password);
 
     }
 
@@ -100,6 +99,8 @@ public class DB_Utility {
             rowCount = rs.getRow() ;
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE GETTING ROW COUNT " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
 
         return rowCount ;
@@ -170,6 +171,8 @@ public class DB_Utility {
 
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE getRowDataAsList " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
 
 
@@ -194,6 +197,8 @@ public class DB_Utility {
 
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE getCellValue " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
         return cellValue ;
 
@@ -215,6 +220,8 @@ public class DB_Utility {
 
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE getCellValue " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
         return cellValue ;
 
@@ -238,10 +245,11 @@ public class DB_Utility {
                 String cellValue = rs.getString(columnNum) ;
                 columnDataLst.add(cellValue) ;
             }
-            rs.beforeFirst(); // make sure to reset the cursor to before first location
 
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE getColumnDataAsList " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
 
 
@@ -265,10 +273,11 @@ public class DB_Utility {
                 String cellValue = rs.getString(columnName) ;
                 columnDataLst.add(cellValue) ;
             }
-            rs.beforeFirst(); // make sure to reset the cursor to before first location
 
         } catch (SQLException e) {
             System.out.println("ERROR OCCURRED WHILE getColumnDataAsList " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
 
 
