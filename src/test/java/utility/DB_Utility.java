@@ -45,7 +45,11 @@ public class DB_Utility {
 
     }
 
-
+    /**
+     * Run the sql query provided and return ResultSet object
+     * @param sql
+     * @return ResultSet object  that contains data
+     */
     public static ResultSet runQuery(String sql){
 
         try {
@@ -58,6 +62,23 @@ public class DB_Utility {
          return rs ;
 
     }
+
+    /**
+     * destroy method to clean up all the resources after being used
+     */
+    public static void destroy(){
+        // WE HAVE TO CHECK IF WE HAVE THE VALID OBJECT FIRST BEFORE CLOSING THE RESOURCE
+        // BECAUSE WE CAN NOT TAKE ACTION ON AN OBEJCT THAT DOES NOT EXIST
+        try {
+            if( rs!=null)  rs.close();
+            if( stm!=null)  stm.close();
+            if( con!=null)  con.close();
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE CLOSING RESOURCES " + e.getMessage() );
+        }
+
+    }
+
 
 
 
