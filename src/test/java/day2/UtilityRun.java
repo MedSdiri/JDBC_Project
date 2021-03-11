@@ -29,6 +29,11 @@ public class UtilityRun {
         int totalColumn = DB_Utility.getColumnCount() ;
         System.out.println("totalColumn = " + totalColumn);
 
+        System.out.println("DB_Utility.getAllColumnNamesAsList() = "
+                    + DB_Utility.getAllColumnNamesAsList());
+
+
+
 
         DB_Utility.destroy();
 
