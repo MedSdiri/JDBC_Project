@@ -1,6 +1,8 @@
 package utility;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DB_Utility {
 
@@ -124,6 +126,22 @@ public class DB_Utility {
 
     // Get all the Column names into a list object
 
+    public static List<String> getAllColumnNamesAsList(){
+
+        List<String> columnNameLst = new ArrayList<>();
+
+        try {
+            for (int colIndex = 1; colIndex <= getColumnCount() ; colIndex++) {
+                String columnName =  rsmd.getColumnName(colIndex) ;
+                columnNameLst.add(columnName) ;
+            }
+        }catch (SQLException e){
+            System.out.println("ERROR OCCURRED WHILE getAllColumnNamesAsList "+ e.getMessage());
+        }
+
+        return columnNameLst ;
+
+    }
 
 
 
