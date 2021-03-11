@@ -7,6 +7,7 @@ public class DB_Utility {
     private static Connection con ;
     private static Statement stm ;
     private static ResultSet rs ;
+    private static ResultSetMetaData rsmd ;
 
     /**
      * Create connection method , just checking one connection successful or not
@@ -54,7 +55,8 @@ public class DB_Utility {
 
         try {
              stm = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-             rs = stm.executeQuery(sql);
+             rs = stm.executeQuery(sql); // setting the value of ResultSet object
+             rsmd = rs.getMetaData() ;  // setting the value of ResulSetMetaData for reuse
         }catch(SQLException e){
             System.out.println("ERROR OCCURRED WHILE RUNNING QUERY "+ e.getMessage() );
         }
@@ -110,7 +112,6 @@ public class DB_Utility {
         int columnCount = 0 ;
 
         try {
-            ResultSetMetaData rsmd = rs.getMetaData() ;
             columnCount = rsmd.getColumnCount();
 
         } catch (SQLException e) {
@@ -120,6 +121,9 @@ public class DB_Utility {
         return columnCount ;
 
     }
+
+    // Get all the Column names into a list object
+
 
 
 
