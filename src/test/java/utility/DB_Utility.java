@@ -101,6 +101,26 @@ public class DB_Utility {
     }
 
 
+    /**
+     * find out the column count
+     * @return column count of this ResultSet
+     */
+    public static int getColumnCount(){
+
+        int columnCount = 0 ;
+
+        try {
+            ResultSetMetaData rsmd = rs.getMetaData() ;
+            columnCount = rsmd.getColumnCount();
+
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE GETTING COLUMN COUNT " + e.getMessage() );
+        }
+
+        return columnCount ;
+
+    }
+
 
 
 
