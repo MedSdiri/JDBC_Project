@@ -84,6 +84,18 @@ public class DB_Utility {
 
     }
 
+    /**
+     * This method will reset the cursor to before first location
+     */
+    private static void resetCursor(){
+
+        try {
+            rs.beforeFirst();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
 
     // find out the row count
 
@@ -285,18 +297,6 @@ public class DB_Utility {
 
     }
 
-    /**
-     * This method will reset the cursor to before first location
-     */
-    public static void resetCursor(){
-
-        try {
-            rs.beforeFirst();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
 
     /**
      * display all data from the ResultSet Object
@@ -312,7 +312,7 @@ public class DB_Utility {
                 for (int colIndex = 1; colIndex <= columnCount; colIndex++) {
 
                     //System.out.print( rs.getString(colIndex) + "\t" );
-                    System.out.printf("%-35s", rs.getString(colIndex));
+                    System.out.printf("%-25s", rs.getString(colIndex));
                 }
                 System.out.println();
 
