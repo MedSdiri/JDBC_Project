@@ -274,6 +274,33 @@ public class DB_Utility {
 
     }
 
+    /**
+     * display all data from the ResultSet Object
+     */
+    public static void  displayAllData(){
+
+        int columnCount = getColumnCount() ;
+        try{
+
+            while(rs.next()){
+
+                for (int colIndex = 1; colIndex <= columnCount; colIndex++) {
+
+                    System.out.print( rs.getString(colIndex) + "\t" );
+
+                }
+                System.out.println();
+
+            }
+
+        }catch(SQLException e){
+            System.out.println("ERROR OCCURRED WHILE displayAllData " + e.getMessage() );
+        }
+
+
+
+    }
+
 
 
 
