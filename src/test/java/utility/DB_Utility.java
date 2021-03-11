@@ -275,19 +275,33 @@ public class DB_Utility {
     }
 
     /**
+     * This method will reset the cursor to before first location
+     */
+    public static void resetCursor(){
+
+        try {
+            rs.beforeFirst();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    /**
      * display all data from the ResultSet Object
      */
     public static void  displayAllData(){
 
         int columnCount = getColumnCount() ;
+        resetCursor();
         try{
 
             while(rs.next()){
 
                 for (int colIndex = 1; colIndex <= columnCount; colIndex++) {
 
-                    System.out.print( rs.getString(colIndex) + "\t" );
-
+                    //System.out.print( rs.getString(colIndex) + "\t" );
+                    System.out.printf("%-35s", rs.getString(colIndex));
                 }
                 System.out.println();
 
@@ -295,6 +309,8 @@ public class DB_Utility {
 
         }catch(SQLException e){
             System.out.println("ERROR OCCURRED WHILE displayAllData " + e.getMessage() );
+        }finally {
+            resetCursor();
         }
 
 
