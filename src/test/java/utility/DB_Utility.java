@@ -239,6 +239,16 @@ public class DB_Utility {
 
     }
 
+
+    /**
+     * Get First Cell Value at First row First Column
+     */
+    public static String getFirstRowFirstColumn(){
+
+        return getCellValue(1,1) ;
+
+    }
+
     //
 
     /**
