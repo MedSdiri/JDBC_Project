@@ -52,6 +52,8 @@ public class UtilityRun {
         System.out.println("DB_Utility.getRowMap(3) = "
                     + DB_Utility.getRowMap(3));
 
+        System.out.println("DB_Utility.getAllRowAsListOfMap() = "
+                 + DB_Utility.getAllRowAsListOfMap());
 
         DB_Utility.destroy();
 
