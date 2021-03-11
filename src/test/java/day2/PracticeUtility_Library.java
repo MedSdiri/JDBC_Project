@@ -21,7 +21,10 @@ public class PracticeUtility_Library {
         System.out.println("FIRST ROW FIRST COLUMN VALUE IS "
                 + DB_Utility.getFirstRowFirstColumn() );
 
+        DB_Utility.runQuery("SELECT * FROM books") ;
 
+        System.out.println("DB_Utility.getRowCount() = " + DB_Utility.getRowCount());
+        System.out.println("DB_Utility.getColumnCount() = " + DB_Utility.getColumnCount());
 
 
         DB_Utility.destroy();
