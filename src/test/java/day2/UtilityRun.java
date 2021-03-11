@@ -23,6 +23,15 @@ public class UtilityRun {
         result.next();
         System.out.println("region name " + result.getString("REGION_NAME"));
 
+        int totalRow = DB_Utility.getRowCount() ;
+        System.out.println("totalRow = " + totalRow);
+
+        int totalColumn = DB_Utility.getColumnCount() ;
+        System.out.println("totalColumn = " + totalColumn);
+
+
+        DB_Utility.destroy();
+
     }
 
 }
