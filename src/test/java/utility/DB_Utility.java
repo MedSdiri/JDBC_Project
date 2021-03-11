@@ -143,6 +143,32 @@ public class DB_Utility {
 
     }
 
+    // get entire row of data according to row number
+
+    public static List<String> getRowDataAsList( int rowNum ){
+
+        List<String> rowDataAsLst = new ArrayList<>();
+        int colCount =  getColumnCount() ;
+
+        try {
+            rs.absolute( rowNum );
+
+            for (int colIndex = 1; colIndex <= colCount ; colIndex++) {
+
+                String cellValue =  rs.getString( colIndex ) ;
+                rowDataAsLst.add(   cellValue  ) ;
+
+            }
+
+
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE getRowDataAsList " + e.getMessage() );
+        }
+
+
+        return rowDataAsLst ;
+    }
+
 
 
 
