@@ -348,6 +348,30 @@ public class DB_Utility {
 
         return rowMap ;
     }
+    /**
+     * We know how to store one row as map object
+     * Now Store All rows as List of Map object
+     * @return List of List of Map object that contain each row data as Map<String,String>
+     */
+    public static List<Map<String,String>> getAllRowAsListOfMap(){
+
+        List<Map<String,String>> allRowLstOfMap = new ArrayList<>();
+        int rowCount = getRowCount() ;
+        // move from first row till last row
+        // get each row as map object and add it to the list
+
+        for (int rowIndex = 1; rowIndex <= rowCount ; rowIndex++) {
+
+            Map<String,String> rowMap = getRowMap(rowIndex);
+            allRowLstOfMap.add( rowMap ) ;
+
+        }
+        resetCursor();
+
+        return allRowLstOfMap ;
+
+    }
+
 
 
 }
