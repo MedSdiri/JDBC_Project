@@ -218,6 +218,36 @@ public class DB_Utility {
 
     }
 
+    //
+
+    /**
+     * getting entire column data as list according to column number
+     * @param columnNum
+     * @return List object that contains all rows of that column
+     */
+    public static List<String> getColumnDataAsList(int columnNum){
+
+        List<String> columnDataLst = new ArrayList<>();
+
+        try {
+            rs.beforeFirst(); // make sure the cursor is at before first location
+            while( rs.next() ){
+
+                String cellValue = rs.getString(columnNum) ;
+                columnDataLst.add(cellValue) ;
+            }
+            rs.beforeFirst(); // make sure to reset the cursor to before first location
+
+        } catch (SQLException e) {
+            System.out.println("ERROR OCCURRED WHILE getColumnDataAsList " + e.getMessage() );
+        }
+
+
+        return columnDataLst ;
+
+    }
+
+
 
 
 
