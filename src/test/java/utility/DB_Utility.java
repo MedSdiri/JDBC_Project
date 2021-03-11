@@ -340,7 +340,7 @@ public class DB_Utility {
             }
 
         }catch(SQLException e){
-            System.out.println("ERROR OCCURRED WHILE displayAllData " + e.getMessage() );
+            System.out.println("ERROR OCCURRED WHILE getRowMap " + e.getMessage() );
         }finally {
             resetCursor();
         }

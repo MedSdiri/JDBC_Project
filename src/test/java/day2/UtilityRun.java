@@ -48,8 +48,9 @@ public class UtilityRun {
         System.out.println("DB_Utility.getColumnDataAsList(\"REGION_NAME\") = "
                             + DB_Utility.getColumnDataAsList("REGION_NAME"));
 
-        DB_Utility.displayAllData();
-
+//        DB_Utility.displayAllData();
+        System.out.println("DB_Utility.getRowMap(3) = "
+                    + DB_Utility.getRowMap(3));
 
 
         DB_Utility.destroy();
