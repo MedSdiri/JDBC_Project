@@ -14,6 +14,7 @@ public class SpartanTest {
         String password = ConfigurationReader.getProperty("spartan.database.password");
 
 
+
     }
 
 }
