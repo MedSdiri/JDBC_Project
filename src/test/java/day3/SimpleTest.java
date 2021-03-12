@@ -17,7 +17,7 @@ public class SimpleTest {
     public void testDashboardNumbers(){
 
         int userCountUI = 8553 ;
-        int bookCountUI = 1992 ;
+        int bookCountUI = 1993 ;
         int borrowedBookCountUI = 800 ;
 
         String url      = ConfigurationReader.getProperty("library1.database.url");
