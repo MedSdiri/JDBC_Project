@@ -32,6 +32,16 @@ public class SimpleTest {
 
         assertEquals(bookCountDB, bookCountUI );
 
+        DB_Utility.runQuery("SELECT count(*) FROM users") ;
+        int userCountDB =  Integer.parseInt(   DB_Utility.getFirstRowFirstColumn()   ) ;
+
+        assertEquals(userCountDB, userCountUI);
+
+        DB_Utility.runQuery("SELECT COUNT(*) FROM book_borrow " +
+                                    "WHERE returned_date IS NULL") ;
+
+        int borrowedBookCountDB = Integer.parseInt( DB_Utility.getFirstRowFirstColumn()  ) ;
+        assertEquals(borrowedBookCountDB, borrowedBookCountUI);
 
         DB_Utility.destroy();
 
